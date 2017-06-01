@@ -90,12 +90,12 @@
 
 
 
-<meta name="description" content="0x01 android文件结构理解    META-INF目录：签名信息，用来保证APK包的完整性和系统的安全性     res目录：应用程序的各种资源文件，图片资源、颜色资源、菜单资源、字符串资源、风格资源，运行时被代码获取并使用     AndroidManifest.xml文件：应用程序的名字、版本、权限、引用的库     class.dex文件：java源代码编译后生成的Java">
+<meta name="description" content="android的apk分析">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CTF-android-apk分析浅析">
 <meta property="og:url" content="http://yoursite.com/2017/06/01/CTF-android-apk/index.html">
 <meta property="og:site_name" content="aptx&#39; Blog">
-<meta property="og:description" content="0x01 android文件结构理解    META-INF目录：签名信息，用来保证APK包的完整性和系统的安全性     res目录：应用程序的各种资源文件，图片资源、颜色资源、菜单资源、字符串资源、风格资源，运行时被代码获取并使用     AndroidManifest.xml文件：应用程序的名字、版本、权限、引用的库     class.dex文件：java源代码编译后生成的Java">
+<meta property="og:description" content="android的apk分析">
 <meta property="og:image" content="http://oqv3pwbpp.bkt.clouddn.com/android.jpg">
 <meta property="og:image" content="http://oqv3pwbpp.bkt.clouddn.com/dex2jar.png">
 <meta property="og:image" content="http://oqv3pwbpp.bkt.clouddn.com/gui.png">
@@ -103,10 +103,10 @@
 <meta property="og:image" content="http://oqv3pwbpp.bkt.clouddn.com/killer2.png">
 <meta property="og:image" content="http://oqv3pwbpp.bkt.clouddn.com/ida1.png">
 <meta property="og:image" content="http://oqv3pwbpp.bkt.clouddn.com/ida2.png">
-<meta property="og:updated_time" content="2017-06-01T09:51:44.716Z">
+<meta property="og:updated_time" content="2017-06-01T10:04:40.664Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CTF-android-apk分析浅析">
-<meta name="twitter:description" content="0x01 android文件结构理解    META-INF目录：签名信息，用来保证APK包的完整性和系统的安全性     res目录：应用程序的各种资源文件，图片资源、颜色资源、菜单资源、字符串资源、风格资源，运行时被代码获取并使用     AndroidManifest.xml文件：应用程序的名字、版本、权限、引用的库     class.dex文件：java源代码编译后生成的Java">
+<meta name="twitter:description" content="android的apk分析">
 <meta name="twitter:image" content="http://oqv3pwbpp.bkt.clouddn.com/android.jpg">
 
 
@@ -325,7 +325,8 @@
       
 
       
-        <h2 id="0x01-android文件结构理解"><a href="#0x01-android文件结构理解" class="headerlink" title="0x01 android文件结构理解"></a>0x01 android文件结构理解</h2><p><img src="http://oqv3pwbpp.bkt.clouddn.com/android.jpg" alt="android"><br>    META-INF目录：签名信息，用来保证APK包的完整性和系统的安全性<br>     res目录：应用程序的各种资源文件，图片资源、颜色资源、菜单资源、字符串资源、风格资源，运行时被代码获取并使用<br>     AndroidManifest.xml文件：应用程序的名字、版本、权限、引用的库<br>     class.dex文件：java源代码编译后生成的Java字节码文件的变种形式<br>     resources.arsc文件：编译后生成的二进制资源文件<br>     lib目录：子目录armeabi存放的是一些so文件<br>     assets目录：存放一些配置文件，这些文件的内容在程序运行过程中可以通过相关的API获得</p>
+        <p>android的apk分析<br><a id="more"></a></p>
+<h2 id="0x01-android文件结构理解"><a href="#0x01-android文件结构理解" class="headerlink" title="0x01 android文件结构理解"></a>0x01 android文件结构理解</h2><p><img src="http://oqv3pwbpp.bkt.clouddn.com/android.jpg" alt="android"><br>    META-INF目录：签名信息，用来保证APK包的完整性和系统的安全性<br>     res目录：应用程序的各种资源文件，图片资源、颜色资源、菜单资源、字符串资源、风格资源，运行时被代码获取并使用<br>     AndroidManifest.xml文件：应用程序的名字、版本、权限、引用的库<br>     class.dex文件：java源代码编译后生成的Java字节码文件的变种形式<br>     resources.arsc文件：编译后生成的二进制资源文件<br>     lib目录：子目录armeabi存放的是一些so文件<br>     assets目录：存放一些配置文件，这些文件的内容在程序运行过程中可以通过相关的API获得</p>
 <h2 id="0x02-CTF，apk分析工具使用"><a href="#0x02-CTF，apk分析工具使用" class="headerlink" title="0x02 CTF，apk分析工具使用"></a>0x02 CTF，apk分析工具使用</h2><p>apk程序分析<br>工具：7zip、dex2jar、jd-gui、IDA pro、ApkIDE、AndroidKiller</p>
 <h3 id="Apk反编译得到Java源代码"><a href="#Apk反编译得到Java源代码" class="headerlink" title="Apk反编译得到Java源代码"></a>Apk反编译得到Java源代码</h3><p>将要反编译的APK解压，得到其中的classes.dex文件，将获取到的classes.dex放到之前解压出来的工具dex2jar-0.0.9.15 文件夹内，在命令行下定位到dex2jar.bat所在目录，输入dex2jar.bat   classes.dex，效果如下：（dex2jar-2.0执行方式不同，但是殊途同归）<br><img src="http://oqv3pwbpp.bkt.clouddn.com/dex2jar.png" alt="android1"><br>在该目录下会生成一个classes_dex2jar.jar的文件，然后打开工具jd-gui文件夹里的jd-gui.exe，之后用该工具打开之前生成的classes_dex2jar.jar文件，便可以看到源码了，效果如下：<br><img src="http://oqv3pwbpp.bkt.clouddn.com/gui.png" alt="android2"><br>针对上图源码，可以进行搜索分析，例如（flag、@、key、passwd等等）获取flag。或者进行算法分析，获取flag。最重要的还是代码阅读和分析能力。</p>
 <h3 id="Apk反编译得到smali代码"><a href="#Apk反编译得到smali代码" class="headerlink" title="Apk反编译得到smali代码"></a>Apk反编译得到smali代码</h3><p>使用集成化的工具，反编译得到smali代码<br><img src="http://oqv3pwbpp.bkt.clouddn.com/killer.png" alt="android3"><br>进行工程搜索，或者直接查看smali代码，获取flag。<br><img src="http://oqv3pwbpp.bkt.clouddn.com/killer2.png" alt="android4"></p>
@@ -366,10 +367,6 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/06/01/CTF-android/" rel="next" title="CTF-android-apk分析浅析">
-                <i class="fa fa-chevron-left"></i> CTF-android-apk分析浅析
-              </a>
             
           </div>
 
@@ -451,7 +448,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
