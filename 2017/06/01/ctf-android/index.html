@@ -90,15 +90,24 @@
 
 
 
-<meta name="description" content="风陵渡口">
-<meta property="og:type" content="website">
-<meta property="og:title" content="aptx&#39; Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="0x01 android文件结构理解    META-INF目录：签名信息，用来保证APK包的完整性和系统的安全性     res目录：应用程序的各种资源文件，图片资源、颜色资源、菜单资源、字符串资源、风格资源，运行时被代码获取并使用     AndroidManifest.xml文件：应用程序的名字、版本、权限、引用的库     class.dex文件：java源代码编译后生成的Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CTF-android-apk分析浅析">
+<meta property="og:url" content="http://yoursite.com/2017/06/01/CTF-android/index.html">
 <meta property="og:site_name" content="aptx&#39; Blog">
-<meta property="og:description" content="风陵渡口">
+<meta property="og:description" content="0x01 android文件结构理解    META-INF目录：签名信息，用来保证APK包的完整性和系统的安全性     res目录：应用程序的各种资源文件，图片资源、颜色资源、菜单资源、字符串资源、风格资源，运行时被代码获取并使用     AndroidManifest.xml文件：应用程序的名字、版本、权限、引用的库     class.dex文件：java源代码编译后生成的Java">
+<meta property="og:image" content="http://oqv3pwbpp.bkt.clouddn.com/android.jpg">
+<meta property="og:image" content="http://oqv3pwbpp.bkt.clouddn.com/dex2jar.png">
+<meta property="og:image" content="http://oqv3pwbpp.bkt.clouddn.com/gui.png">
+<meta property="og:image" content="http://oqv3pwbpp.bkt.clouddn.com/killer.png">
+<meta property="og:image" content="http://oqv3pwbpp.bkt.clouddn.com/killer2.png">
+<meta property="og:image" content="http://oqv3pwbpp.bkt.clouddn.com/ida1.png">
+<meta property="og:image" content="http://oqv3pwbpp.bkt.clouddn.com/ida2.png">
+<meta property="og:updated_time" content="2017-06-01T09:51:44.716Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="aptx&#39; Blog">
-<meta name="twitter:description" content="风陵渡口">
+<meta name="twitter:title" content="CTF-android-apk分析浅析">
+<meta name="twitter:description" content="0x01 android文件结构理解    META-INF目录：签名信息，用来保证APK包的完整性和系统的安全性     res目录：应用程序的各种资源文件，图片资源、颜色资源、菜单资源、字符串资源、风格资源，运行时被代码获取并使用     AndroidManifest.xml文件：应用程序的名字、版本、权限、引用的库     class.dex文件：java源代码编译后生成的Java">
+<meta name="twitter:image" content="http://oqv3pwbpp.bkt.clouddn.com/android.jpg">
 
 
 
@@ -126,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/01/CTF-android/"/>
 
 
 
 
 
-  <title>aptx' Blog</title>
+  <title>CTF-android-apk分析浅析 | aptx' Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -158,9 +167,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -243,237 +250,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/01/article-title/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="aptx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="aptx' Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/01/article-title/" itemprop="url">article title</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-01T12:40:47+08:00">
-                2017-06-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/01/CTF-android-apk/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="aptx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="aptx' Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/01/CTF-android-apk/" itemprop="url">CTF-android-apk分析浅析</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-01T12:40:47+08:00">
-                2017-06-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="0x01-android文件结构理解"><a href="#0x01-android文件结构理解" class="headerlink" title="0x01 android文件结构理解"></a>0x01 android文件结构理解</h2><p><img src="http://oqv3pwbpp.bkt.clouddn.com/android.jpg" alt="android"><br>    META-INF目录：签名信息，用来保证APK包的完整性和系统的安全性<br>     res目录：应用程序的各种资源文件，图片资源、颜色资源、菜单资源、字符串资源、风格资源，运行时被代码获取并使用<br>     AndroidManifest.xml文件：应用程序的名字、版本、权限、引用的库<br>     class.dex文件：java源代码编译后生成的Java字节码文件的变种形式<br>     resources.arsc文件：编译后生成的二进制资源文件<br>     lib目录：子目录armeabi存放的是一些so文件<br>     assets目录：存放一些配置文件，这些文件的内容在程序运行过程中可以通过相关的API获得</p>
-<h2 id="0x02-CTF，apk分析工具使用"><a href="#0x02-CTF，apk分析工具使用" class="headerlink" title="0x02 CTF，apk分析工具使用"></a>0x02 CTF，apk分析工具使用</h2><p>apk程序分析<br>工具：7zip、dex2jar、jd-gui、IDA pro、ApkIDE、AndroidKiller</p>
-<h3 id="Apk反编译得到Java源代码"><a href="#Apk反编译得到Java源代码" class="headerlink" title="Apk反编译得到Java源代码"></a>Apk反编译得到Java源代码</h3><p>将要反编译的APK解压，得到其中的classes.dex文件，将获取到的classes.dex放到之前解压出来的工具dex2jar-0.0.9.15 文件夹内，在命令行下定位到dex2jar.bat所在目录，输入dex2jar.bat   classes.dex，效果如下：（dex2jar-2.0执行方式不同，但是殊途同归）<br><img src="http://oqv3pwbpp.bkt.clouddn.com/dex2jar.png" alt="android1"><br>在该目录下会生成一个classes_dex2jar.jar的文件，然后打开工具jd-gui文件夹里的jd-gui.exe，之后用该工具打开之前生成的classes_dex2jar.jar文件，便可以看到源码了，效果如下：<br><img src="http://oqv3pwbpp.bkt.clouddn.com/gui.png" alt="android2"><br>针对上图源码，可以进行搜索分析，例如（flag、@、key、passwd等等）获取flag。或者进行算法分析，获取flag。最重要的还是代码阅读和分析能力。</p>
-<h3 id="Apk反编译得到smali代码"><a href="#Apk反编译得到smali代码" class="headerlink" title="Apk反编译得到smali代码"></a>Apk反编译得到smali代码</h3><p>使用集成化的工具，反编译得到smali代码<br><img src="http://oqv3pwbpp.bkt.clouddn.com/killer.png" alt="android3"><br>进行工程搜索，或者直接查看smali代码，获取flag。<br><img src="http://oqv3pwbpp.bkt.clouddn.com/killer2.png" alt="android4"></p>
-<h3 id="IDA反编译分析"><a href="#IDA反编译分析" class="headerlink" title="IDA反编译分析"></a>IDA反编译分析</h3><p><img src="http://oqv3pwbpp.bkt.clouddn.com/ida1.png" alt="android5"><br>view查看strings字符串，进行直接查看或者搜索flag。<br><img src="http://oqv3pwbpp.bkt.clouddn.com/ida2.png" alt="android6"></p>
-<h2 id="0x03-参考"><a href="#0x03-参考" class="headerlink" title="0x03 参考"></a>0x03 参考</h2><p>CTF题型较多，还需要有代码编写能力，针对相应的函数或者算法进行逆推，获取flag。这里提供一些参考链接，可供研究：<a href="https://github.com/ctfs" target="_blank" rel="external">https://github.com/ctfs</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
 
   
 
@@ -499,9 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/01/CTF-android/" itemprop="url">CTF-android-apk分析浅析</a></h1>
+          <h1 class="post-title" itemprop="name headline">CTF-android-apk分析浅析</h1>
         
 
         <div class="post-meta">
@@ -548,29 +325,34 @@
       
 
       
-        
-          
-            <h2 id="0x01-android文件结构理解"><a href="#0x01-android文件结构理解" class="headerlink" title="0x01 android文件结构理解"></a>0x01 android文件结构理解</h2><p><img src="http://oqv3pwbpp.bkt.clouddn.com/android.jpg" alt="android"><br>    META-INF目录：签名信息，用来保证APK包的完整性和系统的安全性<br>     res目录：应用程序的各种资源文件，图片资源、颜色资源、菜单资源、字符串资源、风格资源，运行时被代码获取并使用<br>     AndroidManifest.xml文件：应用程序的名字、版本、权限、引用的库<br>     class.dex文件：java源代码编译后生成的Java字节码文件的变种形式<br>     resources.arsc文件：编译后生成的二进制资源文件<br>     lib目录：子目录armeabi存放的是一些so文件<br>     assets目录：存放一些配置文件，这些文件的内容在程序运行过程中可以通过相关的API获得</p>
+        <h2 id="0x01-android文件结构理解"><a href="#0x01-android文件结构理解" class="headerlink" title="0x01 android文件结构理解"></a>0x01 android文件结构理解</h2><p><img src="http://oqv3pwbpp.bkt.clouddn.com/android.jpg" alt="android"><br>    META-INF目录：签名信息，用来保证APK包的完整性和系统的安全性<br>     res目录：应用程序的各种资源文件，图片资源、颜色资源、菜单资源、字符串资源、风格资源，运行时被代码获取并使用<br>     AndroidManifest.xml文件：应用程序的名字、版本、权限、引用的库<br>     class.dex文件：java源代码编译后生成的Java字节码文件的变种形式<br>     resources.arsc文件：编译后生成的二进制资源文件<br>     lib目录：子目录armeabi存放的是一些so文件<br>     assets目录：存放一些配置文件，这些文件的内容在程序运行过程中可以通过相关的API获得</p>
 <h2 id="0x02-CTF，apk分析工具使用"><a href="#0x02-CTF，apk分析工具使用" class="headerlink" title="0x02 CTF，apk分析工具使用"></a>0x02 CTF，apk分析工具使用</h2><p>apk程序分析<br>工具：7zip、dex2jar、jd-gui、IDA pro、ApkIDE、AndroidKiller</p>
 <h3 id="Apk反编译得到Java源代码"><a href="#Apk反编译得到Java源代码" class="headerlink" title="Apk反编译得到Java源代码"></a>Apk反编译得到Java源代码</h3><p>将要反编译的APK解压，得到其中的classes.dex文件，将获取到的classes.dex放到之前解压出来的工具dex2jar-0.0.9.15 文件夹内，在命令行下定位到dex2jar.bat所在目录，输入dex2jar.bat   classes.dex，效果如下：（dex2jar-2.0执行方式不同，但是殊途同归）<br><img src="http://oqv3pwbpp.bkt.clouddn.com/dex2jar.png" alt="android1"><br>在该目录下会生成一个classes_dex2jar.jar的文件，然后打开工具jd-gui文件夹里的jd-gui.exe，之后用该工具打开之前生成的classes_dex2jar.jar文件，便可以看到源码了，效果如下：<br><img src="http://oqv3pwbpp.bkt.clouddn.com/gui.png" alt="android2"><br>针对上图源码，可以进行搜索分析，例如（flag、@、key、passwd等等）获取flag。或者进行算法分析，获取flag。最重要的还是代码阅读和分析能力。</p>
 <h3 id="Apk反编译得到smali代码"><a href="#Apk反编译得到smali代码" class="headerlink" title="Apk反编译得到smali代码"></a>Apk反编译得到smali代码</h3><p>使用集成化的工具，反编译得到smali代码<br><img src="http://oqv3pwbpp.bkt.clouddn.com/killer.png" alt="android3"><br>进行工程搜索，或者直接查看smali代码，获取flag。<br><img src="http://oqv3pwbpp.bkt.clouddn.com/killer2.png" alt="android4"></p>
 <h3 id="IDA反编译分析"><a href="#IDA反编译分析" class="headerlink" title="IDA反编译分析"></a>IDA反编译分析</h3><p><img src="http://oqv3pwbpp.bkt.clouddn.com/ida1.png" alt="android5"><br>view查看strings字符串，进行直接查看或者搜索flag。<br><img src="http://oqv3pwbpp.bkt.clouddn.com/ida2.png" alt="android6"></p>
 <h2 id="0x03-参考"><a href="#0x03-参考" class="headerlink" title="0x03 参考"></a>0x03 参考</h2><p>CTF题型较多，还需要有代码编写能力，针对相应的函数或者算法进行逆推，获取flag。这里提供一些参考链接，可供研究：<a href="https://github.com/ctfs" target="_blank" rel="external">https://github.com/ctfs</a></p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
@@ -578,21 +360,38 @@
       
 
       
-
+        
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/01/CTF-android-apk/" rel="prev" title="CTF-android-apk分析浅析">
+                CTF-android-apk分析浅析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -600,6 +399,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -619,8 +422,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -664,6 +476,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-android文件结构理解"><span class="nav-number">1.</span> <span class="nav-text">0x01 android文件结构理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-CTF，apk分析工具使用"><span class="nav-number">2.</span> <span class="nav-text">0x02 CTF，apk分析工具使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Apk反编译得到Java源代码"><span class="nav-number">2.1.</span> <span class="nav-text">Apk反编译得到Java源代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Apk反编译得到smali代码"><span class="nav-number">2.2.</span> <span class="nav-text">Apk反编译得到smali代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IDA反编译分析"><span class="nav-number">2.3.</span> <span class="nav-text">IDA反编译分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-参考"><span class="nav-number">3.</span> <span class="nav-text">0x03 参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -777,6 +605,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 
