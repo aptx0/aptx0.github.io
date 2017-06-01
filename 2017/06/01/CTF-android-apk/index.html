@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -92,7 +92,7 @@
 
 <meta name="description" content="随着信息安全的火热，CTF比赛也随之越来越多，各式各样的题目层出不穷，烧脑费神，所以对android客户端的分析进行了简单的入门级分析，文中以工具介绍为主，如果想研究的更加深入，研究代码吧。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CTF-android-apk分析浅析">
+<meta property="og:title" content="CTF-android-apk入门浅析">
 <meta property="og:url" content="http://yoursite.com/2017/06/01/CTF-android-apk/index.html">
 <meta property="og:site_name" content="aptx&#39; Blog">
 <meta property="og:description" content="随着信息安全的火热，CTF比赛也随之越来越多，各式各样的题目层出不穷，烧脑费神，所以对android客户端的分析进行了简单的入门级分析，文中以工具介绍为主，如果想研究的更加深入，研究代码吧。">
@@ -103,9 +103,9 @@
 <meta property="og:image" content="http://oqv3pwbpp.bkt.clouddn.com/killer2.png">
 <meta property="og:image" content="http://oqv3pwbpp.bkt.clouddn.com/ida1.png">
 <meta property="og:image" content="http://oqv3pwbpp.bkt.clouddn.com/ida2.png">
-<meta property="og:updated_time" content="2017-06-01T10:18:11.524Z">
+<meta property="og:updated_time" content="2017-06-01T10:31:38.388Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CTF-android-apk分析浅析">
+<meta name="twitter:title" content="CTF-android-apk入门浅析">
 <meta name="twitter:description" content="随着信息安全的火热，CTF比赛也随之越来越多，各式各样的题目层出不穷，烧脑费神，所以对android客户端的分析进行了简单的入门级分析，文中以工具介绍为主，如果想研究的更加深入，研究代码吧。">
 <meta name="twitter:image" content="http://oqv3pwbpp.bkt.clouddn.com/android.jpg">
 
@@ -115,7 +115,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -141,7 +141,7 @@
 
 
 
-  <title>CTF-android-apk分析浅析 | aptx' Blog</title>
+  <title>CTF-android-apk入门浅析 | aptx' Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -278,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CTF-android-apk分析浅析</h1>
+          <h1 class="post-title" itemprop="name headline">CTF-android-apk入门浅析</h1>
         
 
         <div class="post-meta">
@@ -325,8 +325,10 @@
       
 
       
-        <pre><code>随着信息安全的火热，CTF比赛也随之越来越多，各式各样的题目层出不穷，烧脑费神，所以对android客户端的分析进行了简单的入门级分析，文中以工具介绍为主，如果想研究的更加深入，研究代码吧。
-</code></pre><a id="more"></a>
+        <blockquote>
+<p>随着信息安全的火热，CTF比赛也随之越来越多，各式各样的题目层出不穷，烧脑费神，所以对android客户端的分析进行了简单的入门级分析，文中以工具介绍为主，如果想研究的更加深入，研究代码吧。</p>
+</blockquote>
+<a id="more"></a>
 <h2 id="0x01-android文件结构理解"><a href="#0x01-android文件结构理解" class="headerlink" title="0x01 android文件结构理解"></a>0x01 android文件结构理解</h2><p><img src="http://oqv3pwbpp.bkt.clouddn.com/android.jpg" alt="android"><br>    META-INF目录：签名信息，用来保证APK包的完整性和系统的安全性<br>     res目录：应用程序的各种资源文件，图片资源、颜色资源、菜单资源、字符串资源、风格资源，运行时被代码获取并使用<br>     AndroidManifest.xml文件：应用程序的名字、版本、权限、引用的库<br>     class.dex文件：java源代码编译后生成的Java字节码文件的变种形式<br>     resources.arsc文件：编译后生成的二进制资源文件<br>     lib目录：子目录armeabi存放的是一些so文件<br>     assets目录：存放一些配置文件，这些文件的内容在程序运行过程中可以通过相关的API获得</p>
 <h2 id="0x02-CTF，apk分析工具使用"><a href="#0x02-CTF，apk分析工具使用" class="headerlink" title="0x02 CTF，apk分析工具使用"></a>0x02 CTF，apk分析工具使用</h2><p>apk程序分析<br>工具：7zip、dex2jar、jd-gui、IDA pro、ApkIDE、AndroidKiller</p>
 <h3 id="Apk反编译得到Java源代码"><a href="#Apk反编译得到Java源代码" class="headerlink" title="Apk反编译得到Java源代码"></a>Apk反编译得到Java源代码</h3><p>将要反编译的APK解压，得到其中的classes.dex文件，将获取到的classes.dex放到之前解压出来的工具dex2jar-0.0.9.15 文件夹内，在命令行下定位到dex2jar.bat所在目录，输入dex2jar.bat   classes.dex，效果如下：（dex2jar-2.0执行方式不同，但是殊途同归）<br><img src="http://oqv3pwbpp.bkt.clouddn.com/dex2jar.png" alt="android1"><br>在该目录下会生成一个classes_dex2jar.jar的文件，然后打开工具jd-gui文件夹里的jd-gui.exe，之后用该工具打开之前生成的classes_dex2jar.jar文件，便可以看到源码了，效果如下：<br><img src="http://oqv3pwbpp.bkt.clouddn.com/gui.png" alt="android2"><br>针对上图源码，可以进行搜索分析，例如（flag、@、key、passwd等等）获取flag。或者进行算法分析，获取flag。最重要的还是代码阅读和分析能力。</p>
@@ -510,7 +512,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Mist
   </a>
 </div>
 
@@ -589,13 +591,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
