@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/06/02/Samba-CVE-2017-7494/</loc>
+    
+    <lastmod>2017-06-03T12:31:56.262Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/06/02/EternalChampion/</loc>
+    
+    <lastmod>2017-06-03T12:31:43.427Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/06/01/CTF-android-apk/</loc>
+    
+    <lastmod>2017-06-03T12:31:15.575Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/404.html</loc>
     
     <lastmod>2017-06-03T09:31:38.289Z</lastmod>
@@ -9,30 +30,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/06/02/Samba-CVE-2017-7494/</loc>
-    
-    <lastmod>2017-06-03T09:22:01.774Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/tags/index.html</loc>
     
     <lastmod>2017-06-02T04:06:51.676Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/06/02/EternalChampion/</loc>
-    
-    <lastmod>2017-06-02T04:04:13.493Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/06/01/CTF-android-apk/</loc>
-    
-    <lastmod>2017-06-02T04:03:17.386Z</lastmod>
     
   </url>
   
