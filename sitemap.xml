@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/about/index.html</loc>
+    
+    <lastmod>2017-06-04T05:27:32.271Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/06/02/Samba-CVE-2017-7494/</loc>
     
     <lastmod>2017-06-03T12:50:12.944Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://yoursite.com/categories/index.html</loc>
     
     <lastmod>2017-06-01T14:39:49.205Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/about/index.html</loc>
-    
-    <lastmod>2017-06-01T14:21:02.660Z</lastmod>
     
   </url>
   
